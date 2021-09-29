@@ -485,6 +485,7 @@ Transform:
   - {fileID: 1685724162}
   - {fileID: 96998701}
   - {fileID: 414544275}
+  - {fileID: 907338435}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -499,7 +500,7 @@ GameObject:
   - component: {fileID: 907338435}
   - component: {fileID: 907338434}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,11 +565,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907338433}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.3, z: 1.1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.39633808, y: 10.345181, z: 4.6776}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 539209546}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685724161
@@ -800,7 +801,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4477179019819165666, guid: 706e753b510d40046b7dc46b088d1d94, type: 3}
       propertyPath: m_Name
-      value: Spikes
+      value: Laser
       objectReference: {fileID: 0}
     - target: {fileID: 4477179019819165677, guid: 706e753b510d40046b7dc46b088d1d94, type: 3}
       propertyPath: m_RootOrder
@@ -808,11 +809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4477179019819165677, guid: 706e753b510d40046b7dc46b088d1d94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.91
+      value: 3.845
       objectReference: {fileID: 0}
     - target: {fileID: 4477179019819165677, guid: 706e753b510d40046b7dc46b088d1d94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.55
+      value: -3.258
       objectReference: {fileID: 0}
     - target: {fileID: 4477179019819165677, guid: 706e753b510d40046b7dc46b088d1d94, type: 3}
       propertyPath: m_LocalPosition.z
@@ -855,6 +856,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6417063372195881425, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
+      propertyPath: jumpMultiplier
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417063372195881425, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
+      propertyPath: moveMultiplier
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6417063372195881434, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -926,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6835494249981519870, guid: 6b3d036d08251fa4281457e9289f587f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.909
+      value: -3.62
       objectReference: {fileID: 0}
     - target: {fileID: 6835494249981519870, guid: 6b3d036d08251fa4281457e9289f587f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1013,6 +1022,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7783509899529777109, guid: d9e69fc17a2a6614ca5408f68991bca9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d8dd78d3b274cd4faa9a1b86a261c7b, type: 3}
     - target: {fileID: 7783509899529777112, guid: d9e69fc17a2a6614ca5408f68991bca9, type: 3}
       propertyPath: m_Name
       value: Ball
