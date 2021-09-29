@@ -6,11 +6,15 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Transform groundCheck;
+    public SpriteRenderer sr;
 
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
+    public float groundDistance = 1f;
 
     public LayerMask groundMask;
+
+    public float multiplier = 1000f;
 
     // Update is called once per frame
     void Update()
@@ -21,15 +25,20 @@ public class PlayerMovement : MonoBehaviour
     void Move ()
     {
         if (Input.GetKey(KeyCode.A))
-            rb.AddForce(new Vector2(-moveSpeed, 0f), ForceMode2D.Force);
+            rb.AddForce(new Vector2(-moveSpeed * multiplier * Time.deltaTime, 0f), ForceMode2D.Force);
         if (Input.GetKey(KeyCode.D))
-            rb.AddForce(new Vector2(moveSpeed, 0f), ForceMode2D.Force);
+            rb.AddForce(new Vector2(moveSpeed * multiplier * Time.deltaTime, 0f), ForceMode2D.Force);
         if (Input.GetKeyDown(KeyCode.Space) && CheckGround())
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0f, jumpForce * multiplier * Time.deltaTime), ForceMode2D.Impulse);
+
+        if (rb.velocity.x < 0f)
+            sr.flipX = true;
+        else if (rb.velocity.x > 0f)
+            sr.flipX = false;
     }
 
     bool CheckGround ()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundMask);
+        return Physics2D.OverlapCircle(groundCheck.position, groundDistance, groundMask);
     }
 }
