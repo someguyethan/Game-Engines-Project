@@ -260,7 +260,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  multiplier: 500
+  moveMultiplier: 500
+  jumpMultiplier: 1000
 --- !u!70 &6417063372195881424
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

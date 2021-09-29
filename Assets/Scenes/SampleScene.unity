@@ -858,10 +858,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6417063372195881425, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
       propertyPath: jumpMultiplier
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6417063372195881425, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
-      propertyPath: moveMultiplier
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6417063372195881434, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
@@ -1022,10 +1018,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7783509899529777109, guid: d9e69fc17a2a6614ca5408f68991bca9, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6d8dd78d3b274cd4faa9a1b86a261c7b, type: 3}
     - target: {fileID: 7783509899529777112, guid: d9e69fc17a2a6614ca5408f68991bca9, type: 3}
       propertyPath: m_Name
       value: Ball
