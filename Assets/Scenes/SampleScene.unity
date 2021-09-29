@@ -489,6 +489,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &848706858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4477179019819165666, guid: 706e753b510d40046b7dc46b088d1d94, type: 3}
+  m_PrefabInstance: {fileID: 4477179018089147204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &848706859
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848706858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f3bb83c8090ee924c9fc323d0bcf0917, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &907338433
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +816,30 @@ Transform:
   m_Father: {fileID: 539209546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1984550282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6835494249981519808, guid: 6b3d036d08251fa4281457e9289f587f, type: 3}
+  m_PrefabInstance: {fileID: 6835494249902844383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1984550283
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984550282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17151f67403f3df4095d63abdb783a2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4477179018089147204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -856,6 +904,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6417063372195881425, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6417063372195881425, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
       propertyPath: jumpMultiplier
       value: 500

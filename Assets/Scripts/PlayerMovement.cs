@@ -17,26 +17,42 @@ public class PlayerMovement : MonoBehaviour
     public float moveMultiplier = 1000f;
     public float jumpMultiplier = 1000f;
 
-    // Update is called once per frame
+    Vector2 movement;
+
     void Update()
     {
-        Move();
-    }
-
-    void Move ()
-    {
-        if (Input.GetKey(KeyCode.A))
-            rb.AddForce(new Vector2(-moveSpeed * moveMultiplier * Time.deltaTime, 0f), ForceMode2D.Force);
-        if (Input.GetKey(KeyCode.D))
-            rb.AddForce(new Vector2(moveSpeed * moveMultiplier * Time.deltaTime, 0f), ForceMode2D.Force);
         if (Input.GetKeyDown(KeyCode.Space) && CheckGround())
-            rb.AddForce(new Vector2(0f, jumpForce * jumpMultiplier * Time.deltaTime), ForceMode2D.Impulse);
+            Jump();
+
+        MyInput();
 
         if (rb.velocity.x < 0f)
             sr.flipX = true;
         else if (rb.velocity.x > 0f)
             sr.flipX = false;
     }
+    void FixedUpdate()
+    {
+        Move();
+    }
+
+    void Move ()
+    {
+        rb.AddForce(movement, ForceMode2D.Force);
+    }
+
+    void Jump()
+    {
+        rb.AddForce(new Vector2(0f, jumpForce * jumpMultiplier * Time.deltaTime), ForceMode2D.Impulse);
+    }
+    void MyInput()
+    {
+        float xInput = Input.GetAxisRaw("Horizontal");
+
+        movement = new Vector2(xInput * moveSpeed * moveMultiplier * Time.deltaTime, 0f);
+
+        rb.AddForce(movement, ForceMode2D.Force);
+    }    
 
     bool CheckGround ()
     {
