@@ -233,6 +233,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &127661287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6417063372195881434, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
+  m_PrefabInstance: {fileID: 6417063371428452969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &127661288
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127661287}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d38bf2f5e0f51b54789845d6c94f2303, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &214078188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7783509899529777112, guid: d9e69fc17a2a6614ca5408f68991bca9, type: 3}
+  m_PrefabInstance: {fileID: 7783509900276280349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &214078189
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214078188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 004ba9181f922fe4b9f89c8127b8d80c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &414544274
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +952,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6417063372195881425, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 127661288}
     - target: {fileID: 6417063372195881425, guid: a55ddd1ca2850a54991a0d96d39918c0, type: 3}
       propertyPath: jumpForce
       value: 20

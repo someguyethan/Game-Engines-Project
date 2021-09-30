@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public SpriteRenderer sr;
+    public Animator anim;
 
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
@@ -25,6 +26,11 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
         MyInput();
+
+        if (rb.velocity.x > 0.1f || rb.velocity.x < -0.1f)
+            anim.SetTrigger("isMoving");
+        else
+            anim.SetTrigger("isStill");
 
         if (rb.velocity.x < 0f)
             sr.flipX = true;
