@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
         rb.AddForce(new Vector2(0f, jumpForce * jumpMultiplier * Time.deltaTime), ForceMode2D.Impulse);
     }
     void MyInput()
