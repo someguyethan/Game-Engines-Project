@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public LayerMask groundMask;
 
-    public float moveMultiplier = 1000f;
-    public float jumpMultiplier = 1000f;
+    public float moveMultiplier;
+    public float jumpMultiplier;
 
     Vector2 movement;
 
@@ -57,8 +57,6 @@ public class PlayerMovement : MonoBehaviour
         float xInput = Input.GetAxisRaw("Horizontal");
 
         movement = new Vector2(xInput * moveSpeed * moveMultiplier * Time.deltaTime, 0f);
-
-        rb.AddForce(movement, ForceMode2D.Force);
     }    
 
     bool CheckGround ()
