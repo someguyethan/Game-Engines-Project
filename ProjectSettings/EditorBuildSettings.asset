@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Defeat.unity
     guid: 8560dca1d6127a344a88c756438f61b9
+  - enabled: 1
+    path: Assets/Scenes/Tile Scene.unity
+    guid: 728befbfebc2adc4d8559ca0ae7d6616
   m_configObjects: {}

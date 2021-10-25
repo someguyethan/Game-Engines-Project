@@ -7,6 +7,6 @@ public class PlayButton : MonoBehaviour
 {
     public void NextScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Tile Scene");
     }
 }
