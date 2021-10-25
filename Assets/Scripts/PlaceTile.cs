@@ -26,8 +26,6 @@ public class PlaceTile : MonoBehaviour
     public GameObject playerPrefab;
     public TileBase playerPrefab_preview;
 
-    GridBrushBase gameObjectBrush;
-
     Vector3Int temp = Vector3Int.zero;
 
     Vector2Int[] directions = new Vector2Int[] 
@@ -42,9 +40,15 @@ public class PlaceTile : MonoBehaviour
         new Vector2Int(1,1)
     };
 
-    bool doTile = true;
+    public bool doTile = true;
     GameObject currentPrefab;
     TileBase currentPrefab_preview;
+
+    void Start()
+    {
+        currentPrefab = ballPrefab;
+        currentPrefab_preview = ballPrefab_preview;
+    }
 
     // Update is called once per frame
     void Update()
@@ -57,33 +61,28 @@ public class PlaceTile : MonoBehaviour
             doTile = !doTile;
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            currentPrefab = ballPrefab;
-            currentPrefab_preview = ballPrefab_preview;
+            SetCurrent(ballPrefab, ballPrefab_preview);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            currentPrefab = doorPrefab;
-            currentPrefab_preview = doorPrefab_preview;
+            SetCurrent(doorPrefab, doorPrefab_preview);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            currentPrefab = laserPrefab;
-            currentPrefab_preview = laserPrefab_preview;
+            SetCurrent(laserPrefab, laserPrefab_preview);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            currentPrefab = jumpPadPrefab;
-            currentPrefab_preview = jumpPadPrefab_preview;
+            SetCurrent(jumpPadPrefab, jumpPadPrefab_preview);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            currentPrefab = playerPrefab;
-            currentPrefab_preview = playerPrefab_preview;
+            SetCurrent(playerPrefab, playerPrefab_preview);
         }
 
-        if (!doTile)
+        if (doTile)
             PaintTile(worldPos3);
-        else if (doTile)
+        else if (!doTile)
             PaintPrefab(worldPos3, currentPrefab, currentPrefab_preview);
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -103,7 +102,7 @@ public class PlaceTile : MonoBehaviour
         {
             map.SetTile(map.WorldToCell(worldPos), groundPreview);
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             map.SetTile(map.WorldToCell(worldPos), ground);
         }
@@ -118,7 +117,7 @@ public class PlaceTile : MonoBehaviour
             map.SetTile(map.WorldToCell(worldPos), prefab_preview);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
             Instantiate(prefab, new Vector3(map.WorldToCell(worldPos).x + 0.5f, map.WorldToCell(worldPos).y + 0.5f, 0f), Quaternion.identity);
 
         
@@ -163,5 +162,11 @@ public class PlaceTile : MonoBehaviour
     void Resume()
     {
         Time.timeScale = 1;
+    }
+
+    public void SetCurrent(GameObject prefab, TileBase prefab_preview)
+    {
+        currentPrefab = prefab;
+        currentPrefab_preview = prefab_preview;
     }
 }

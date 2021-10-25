@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Camera
+  - Ball Button
+  - Laser Button
+  - Jump Pad Button
+  - Door Button
   layers:
   - Default
   - TransparentFX

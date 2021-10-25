@@ -9,6 +9,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
             SceneManager.LoadScene("Defeat");
-        Destroy(collision.gameObject);
+        if (collision.gameObject.tag != "Player")
+            Destroy(collision.gameObject);
     }
 }
