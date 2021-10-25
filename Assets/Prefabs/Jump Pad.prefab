@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6835494249981519869}
   - component: {fileID: 6835494249981519868}
   - component: {fileID: 8629672619397738478}
+  - component: {fileID: 5067818210387055141}
   m_Layer: 3
   m_Name: Jump Pad
   m_TagString: Untagged
@@ -102,7 +103,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.02}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 1}
     oldSize: {x: 1, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -145,3 +146,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5067818210387055141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835494249981519808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efde4100a63e25846a9643f9ab621457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

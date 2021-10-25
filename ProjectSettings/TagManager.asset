@@ -8,6 +8,7 @@ TagManager:
   - Laser Button
   - Jump Pad Button
   - Door Button
+  - Destroy Button
   layers:
   - Default
   - TransparentFX

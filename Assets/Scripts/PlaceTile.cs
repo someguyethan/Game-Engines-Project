@@ -42,6 +42,8 @@ public class PlaceTile : MonoBehaviour
     };
 
     public bool doTile = true;
+    public bool doDestroy = false;
+    public Vector3 wPos;
     GameObject currentPrefab;
     TileBase currentPrefab_preview;
 
@@ -57,9 +59,12 @@ public class PlaceTile : MonoBehaviour
         Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = cam.ScreenToWorldPoint(screenPos);
         Vector3 worldPos3 = new Vector3 (worldPos.x, worldPos.y, 0f);
+        wPos = worldPos3;
 
         if (Input.GetKeyDown(KeyCode.T))
             doTile = !doTile;
+        else if (Input.GetKeyDown(KeyCode.R))
+            doDestroy = !doDestroy;
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetCurrent(ballPrefab, ballPrefab_preview);
@@ -123,7 +128,7 @@ public class PlaceTile : MonoBehaviour
 
         
     }
-    void ClearPreviews(Vector3 worldPos)
+    public void ClearPreviews(Vector3 worldPos)
     {
         for (int i = 1; i <= 8; i++)
         {

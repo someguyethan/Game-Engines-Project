@@ -25,6 +25,7 @@ public class FreeCamController : MonoBehaviour
         {
             isFreelook = !isFreelook;
             pm.canMove = !pm.canMove;
+            //tileManager.ClearPreviews(tileManager.wPos);
         }
         if (isFreelook)
         {

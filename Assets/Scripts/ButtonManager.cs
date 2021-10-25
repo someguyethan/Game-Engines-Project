@@ -11,6 +11,7 @@ public class ButtonManager : MonoBehaviour
     public Button jumpPad;
     public Button door;
     public Button ground;
+    public Button destroy;
 
     private void Update()
     {
@@ -19,6 +20,7 @@ public class ButtonManager : MonoBehaviour
         jumpPad.onClick.AddListener(JumpPadButton);
         door.onClick.AddListener(DoorButton);
         ground.onClick.AddListener(TileButton);
+        destroy.onClick.AddListener(DestroyButton);
     }
     void BallButton()
     {
@@ -43,5 +45,9 @@ public class ButtonManager : MonoBehaviour
     void TileButton()
     {
         placer.doTile = true;
+    }
+    void DestroyButton()
+    {
+        placer.doDestroy = !placer.doDestroy;
     }
 }
