@@ -18,24 +18,29 @@ public class PlayerMovement : MonoBehaviour
     public float moveMultiplier;
     public float jumpMultiplier;
 
+    public bool canMove = true;
+
     Vector2 movement;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && CheckGround())
-            Jump();
+        if (canMove)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && CheckGround())
+                Jump();
 
-        MyInput();
+            MyInput();
 
-        if (rb.velocity.x > 0.1f || rb.velocity.x < -0.1f)
-            anim.SetTrigger("isMoving");
-        else
-            anim.SetTrigger("isStill");
+            if (rb.velocity.x > 0.1f || rb.velocity.x < -0.1f)
+                anim.SetTrigger("isMoving");
+            else
+                anim.SetTrigger("isStill");
 
-        if (rb.velocity.x < 0f)
-            sr.flipX = true;
-        else if (rb.velocity.x > 0f)
-            sr.flipX = false;
+            if (rb.velocity.x < 0f)
+                sr.flipX = true;
+            else if (rb.velocity.x > 0f)
+                sr.flipX = false;
+        }
     }
     void FixedUpdate()
     {

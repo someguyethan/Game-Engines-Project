@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class PlaceTile : MonoBehaviour
 {
-    //public Grid grid;
+    public Camera cam;
+
     public Tilemap map;
 
     public TileBase ground;
@@ -54,7 +55,7 @@ public class PlaceTile : MonoBehaviour
     void Update()
     {
         Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        Vector2 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+        Vector2 worldPos = cam.ScreenToWorldPoint(screenPos);
         Vector3 worldPos3 = new Vector3 (worldPos.x, worldPos.y, 0f);
 
         if (Input.GetKeyDown(KeyCode.T))
