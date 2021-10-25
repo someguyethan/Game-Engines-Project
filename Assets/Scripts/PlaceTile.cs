@@ -102,7 +102,7 @@ public class PlaceTile : MonoBehaviour
     void PaintTile(Vector3 worldPos)
     {
         ClearPreviews(worldPos);
-
+        RemoveTile(worldPos);
 
         if (map.GetTile(map.WorldToCell(worldPos)) == null)
         {
@@ -174,5 +174,15 @@ public class PlaceTile : MonoBehaviour
     {
         currentPrefab = prefab;
         currentPrefab_preview = prefab_preview;
+    }
+    void RemoveTile(Vector3 worldPos)
+    {
+        if (doDestroy)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                map.SetTile(map.WorldToCell(worldPos), null);
+            }
+        }
     }
 }
