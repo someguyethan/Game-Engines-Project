@@ -43,9 +43,10 @@ public class PlaceTile : MonoBehaviour
 
     public bool doTile = true;
     public bool doDestroy = false;
-    public Vector3 wPos;
     GameObject currentPrefab;
     TileBase currentPrefab_preview;
+
+    private bool isDirty = true;
 
     void Start()
     {
@@ -59,7 +60,6 @@ public class PlaceTile : MonoBehaviour
         Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = cam.ScreenToWorldPoint(screenPos);
         Vector3 worldPos3 = new Vector3 (worldPos.x, worldPos.y, 0f);
-        wPos = worldPos3;
 
         if (Input.GetKeyDown(KeyCode.T))
             doTile = !doTile;
@@ -107,6 +107,7 @@ public class PlaceTile : MonoBehaviour
         if (map.GetTile(map.WorldToCell(worldPos)) == null)
         {
             map.SetTile(map.WorldToCell(worldPos), groundPreview);
+            isDirty = true;
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
@@ -116,11 +117,12 @@ public class PlaceTile : MonoBehaviour
     }
     void PaintPrefab(Vector3 worldPos, GameObject prefab, TileBase prefab_preview)
     {
-
         ClearPreviews(worldPos);
+
         if (map.GetTile(map.WorldToCell(worldPos)) == null)
         {
             map.SetTile(map.WorldToCell(worldPos), prefab_preview);
+            isDirty = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -130,35 +132,39 @@ public class PlaceTile : MonoBehaviour
     }
     public void ClearPreviews(Vector3 worldPos)
     {
-        for (int i = 1; i <= 8; i++)
+        if (isDirty)
         {
-            Vector3Int temp = new Vector3Int(map.WorldToCell(worldPos).x + directions[i - 1].x,
-                                             map.WorldToCell(worldPos).y + directions[i - 1].y, 0);
+            for (int i = 1; i <= 8; i++)
+            {
+                Vector3Int temp = new Vector3Int(map.WorldToCell(worldPos).x + directions[i - 1].x,
+                                                 map.WorldToCell(worldPos).y + directions[i - 1].y, 0);
 
-            if (map.GetTile(temp) == jumpPadPrefab_preview)
-            {
-                map.SetTile(temp, null);
+                if (map.GetTile(temp) == jumpPadPrefab_preview)
+                {
+                    map.SetTile(temp, null);
+                }
+                if (map.GetTile(temp) == playerPrefab_preview)
+                {
+                    map.SetTile(temp, null);
+                }
+                if (map.GetTile(temp) == laserPrefab_preview)
+                {
+                    map.SetTile(temp, null);
+                }
+                if (map.GetTile(temp) == doorPrefab_preview)
+                {
+                    map.SetTile(temp, null);
+                }
+                if (map.GetTile(temp) == ballPrefab_preview)
+                {
+                    map.SetTile(temp, null);
+                }
+                if (map.GetTile(temp) == groundPreview)
+                {
+                    map.SetTile(temp, null);
+                }
             }
-            if (map.GetTile(temp) == playerPrefab_preview)
-            {
-                map.SetTile(temp, null);
-            }
-            if (map.GetTile(temp) == laserPrefab_preview)
-            {
-                map.SetTile(temp, null);
-            }
-            if (map.GetTile(temp) == doorPrefab_preview)
-            {
-                map.SetTile(temp, null);
-            }
-            if (map.GetTile(temp) == ballPrefab_preview)
-            {
-                map.SetTile(temp, null);
-            }
-            if (map.GetTile(temp) == groundPreview)
-            {
-                map.SetTile(temp, null);
-            }
+            isDirty = false;
         }
     }
     void Pause()
