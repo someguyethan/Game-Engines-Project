@@ -48,6 +48,8 @@ public class PlaceTile : MonoBehaviour
 
     private bool isDirty = true;
 
+    private Vector3Int prev_cell;
+
     void Start()
     {
         currentPrefab = ballPrefab;
@@ -98,6 +100,7 @@ public class PlaceTile : MonoBehaviour
             else if (Time.timeScale == 1)
                 Pause();
         }
+        prev_cell = map.WorldToCell(worldPos3);
     }
     void PaintTile(Vector3 worldPos)
     {
@@ -107,8 +110,10 @@ public class PlaceTile : MonoBehaviour
         if (map.GetTile(map.WorldToCell(worldPos)) == null)
         {
             map.SetTile(map.WorldToCell(worldPos), groundPreview);
-            isDirty = true;
         }
+        if (prev_cell != map.WorldToCell(worldPos))
+            isDirty = true;
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             map.SetTile(map.WorldToCell(worldPos), ground);
@@ -122,8 +127,9 @@ public class PlaceTile : MonoBehaviour
         if (map.GetTile(map.WorldToCell(worldPos)) == null)
         {
             map.SetTile(map.WorldToCell(worldPos), prefab_preview);
-            isDirty = true;
         }
+        if (prev_cell != map.WorldToCell(worldPos))
+            isDirty = true;
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
             Instantiate(prefab, new Vector3(map.WorldToCell(worldPos).x + 0.5f, map.WorldToCell(worldPos).y + 0.5f, 0f), Quaternion.identity);
